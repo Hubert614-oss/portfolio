@@ -3,7 +3,7 @@ import Service from "../components/service"
 
 const PrincipalPage = () => {
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen  bg-white">
       {/* header */}
       <Header />
 
