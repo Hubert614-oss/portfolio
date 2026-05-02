@@ -1,5 +1,6 @@
 import Header from "../components/header"
 import TrustSection from "../components/trustSection"
+import TechStackSection from "../components/techStackSection"
 
 const PrincipalPage = () => {
   return (
@@ -7,7 +8,10 @@ const PrincipalPage = () => {
       {/* header */}
       {/* <Header /> */}
 
-      <TrustSection />
+      {/* <TrustSection /> */}
+
+      <TechStackSection />
+
     </div>
   )
 }
