@@ -55,10 +55,43 @@ export default function Service() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
-        {items.map(item => (
-          <ServiceCard key={item.id} item={item} selected={selectedId === item.id} onSelect={(id) => setSelectedId(id === selectedId ? null : id)} />
-        ))}
+      {/* Infinite horizontal carousel */}
+      <div className="relative mt-14">
+        <div className="overflow-hidden">
+          <div className="scroll-viewport">
+            <div className="scroll-track flex items-stretch">
+              {/** duplicate items for seamless loop */}
+              {[...items, ...items].map((item, idx) => (
+                <div
+                  key={`${item.id}-${idx}`}
+                  className="card-item px-2"
+                >
+                  <ServiceCard
+                    item={item}
+                    selected={selectedId === item.id}
+                    onSelect={(id) => setSelectedId(id === selectedId ? null : id)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <style>{`
+          .scroll-viewport { width: 100%; }
+          .scroll-track { display: flex; gap: 1rem; align-items: stretch; width: max-content; animation: scroll 18s linear infinite; }
+          .scroll-track:hover { animation-play-state: paused; }
+          .card-item { flex: 0 0 100%; max-width: 100%; }
+
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+
+          @media (min-width: 768px) {
+            .card-item { flex: 0 0 33.3333%; max-width: 33.3333%; }
+          }
+        `}</style>
       </div>
     </section>
   )
