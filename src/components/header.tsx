@@ -112,10 +112,6 @@ const Header = () => {
                                     Agence digitale spécialisée en développement, marketing et production vidéo
                                 </p>
 
-                                <p className="text-base md:text-lg mb-8 opacity-95">
-                                    En 5 secondes, le visiteur comprend ce que vous faites. Nous transformons votre vision en réalité digitale.
-                                </p>
-
                                 <div className="flex flex-col sm:flex-row gap-4">
                                     <a
                                         href="#portfolio"
