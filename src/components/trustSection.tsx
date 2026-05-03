@@ -35,9 +35,11 @@ const TrustSection = () => {
     setActiveIndex((prev) => (prev + 1) % projects.length);
   }, []);
 
-//   const prevSlide = useCallback(() => {
-//     setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
-//   }, []);
+  const prevSlide = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  }, []);
+
+  const activeProject = projects[activeIndex];
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -77,7 +79,7 @@ const TrustSection = () => {
   };
 
   return (
-    <section className="relative w-full overflow-hidden py-20 lg:py-28">
+    <section id="confiance" className="relative w-full overflow-hidden py-20 lg:py-28">
       {/* Fond parabolique avec dégradé violet */}
       <div className="absolute inset-0 bg-linear-to-b from-white via-purple-200 to-purple-300">
         {/* Courbe parabolique supérieure */}
@@ -111,7 +113,7 @@ const TrustSection = () => {
 
         {/* Carrousel 3D */}
         <div 
-          className="relative h-125 md:h-137.5 flex items-center justify-center perspective-1000"
+          className="relative hidden md:flex h-125 md:h-137.5 items-center justify-center perspective-1000"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
@@ -175,6 +177,87 @@ const TrustSection = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Carrousel mobile simplifie */}
+        <div className="-mt-3 flex flex-col items-center md:hidden">
+          <div
+            className={`w-full max-w-sm overflow-hidden rounded-2xl bg-linear-to-br ${activeProject.color} shadow-2xl`}
+          >
+            <div className="px-6 py-4 flex items-center justify-between">
+              <h3 className="text-white font-bold text-lg tracking-wider">
+                {activeProject.name}
+              </h3>
+              <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                <span className="text-white font-bold text-sm">
+                  {activeProject.logo}
+                </span>
+              </div>
+            </div>
+
+            <div className="px-6 pb-4">
+              <p className="text-purple-100 text-sm leading-relaxed">
+                {activeProject.description}
+              </p>
+            </div>
+
+            <div className="px-4 pb-4">
+              <div className="relative overflow-hidden bg-white/10 backdrop-blur-sm">
+                <img
+                  src={activeProject.image}
+                  alt={activeProject.name}
+                  className="w-full h-44 object-cover"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-purple-900/20 to-transparent" />
+              </div>
+            </div>
+
+            {activeProject.name === 'HEI-ADMIN' && (
+              <div className="absolute -right-3 top-1/2 -translate-y-1/2">
+                <div className="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={prevSlide}
+              className="h-9 w-9 rounded-full border border-purple-200 text-purple-700 bg-white/80 shadow-sm"
+              aria-label="Projet precedent"
+            >
+              ‹
+            </button>
+
+            <div className="flex items-center gap-2">
+              {projects.map((_, index) => (
+                <button
+                  key={`dot-${index}`}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
+                    index === activeIndex
+                      ? 'bg-purple-700 w-6'
+                      : 'bg-purple-300'
+                  }`}
+                  aria-label={`Aller au projet ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={nextSlide}
+              className="h-9 w-9 rounded-full border border-purple-200 text-purple-700 bg-white/80 shadow-sm"
+              aria-label="Projet suivant"
+            >
+              ›
+            </button>
+          </div>
         </div>
 
         {/* Indicateurs de pagination */}

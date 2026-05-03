@@ -1,0 +1,12 @@
+[
+  { "id": 1, "name": "Ryan ANDRIAMAHERY", "role": "Lead Developer Backend", "skills": "Java, SpringBoot, Postgresql", "xp": "4 ans xp", "avatar": "https://randomuser.me/api/portraits/men/32.jpg" },
+  { "id": 2, "name": "Lou Maurica", "role": "Lead Developer Backend", "skills": "Java, SpringBoot, Postgresql", "xp": "10 ans xp", "avatar": "https://randomuser.me/api/portraits/men/45.jpg" },
+  { "id": 3, "name": "Yannick RAHARIJAONA", "role": "Cloud & IA Director", "skills": "Java, Python, Postgresql", "xp": "6 ans xp", "avatar": "https://randomuser.me/api/portraits/men/22.jpg" },
+  { "id": 4, "name": "Ny Anjaratiana RAZAFINTSIALONINA", "role": "Consultant Back-end", "skills": "Java, SpringBoot, Postgresql", "xp": "2 ans xp", "avatar": "https://randomuser.me/api/portraits/men/36.jpg" },
+  { "id": 5, "name": "Amour RAMANANTSIRESY", "role": "Consultant Front-end", "skills": "React, Typescript, Node JS", "xp": "2 ans xp", "avatar": "https://randomuser.me/api/portraits/men/52.jpg" },
+  { "id": 6, "name": "Mina Rakoto", "role": "UI/UX Designer", "skills": "Figma, Sketch, Motion", "xp": "3 ans xp", "avatar": "https://randomuser.me/api/portraits/women/44.jpg" },
+  { "id": 7, "name": "Tiana Raso", "role": "Product Manager", "skills": "Agile, Roadmaps", "xp": "7 ans xp", "avatar": "https://randomuser.me/api/portraits/women/68.jpg" },
+  { "id": 8, "name": "Hery Ando", "role": "DevOps Engineer", "skills": "Docker, Kubernetes, AWS", "xp": "5 ans xp", "avatar": "https://randomuser.me/api/portraits/men/66.jpg" },
+  { "id": 9, "name": "Sofia Raja", "role": "Motion Designer", "skills": "After Effects, Premiere", "xp": "4 ans xp", "avatar": "https://randomuser.me/api/portraits/women/12.jpg" },
+  { "id": 10, "name": "Alexis B", "role": "Fullstack Developer", "skills": "React, Node, PostgreSQL", "xp": "3 ans xp", "avatar": "https://randomuser.me/api/portraits/men/77.jpg" }
+]
