@@ -13,10 +13,8 @@ type Person = {
 
 function TeamCard({
   person,
-  onRecruit,
 }: {
   person: Person;
-  onRecruit: (p: Person) => void;
 }): ReactElement {
   return (
     <div className="card">
@@ -110,7 +108,7 @@ export default function Team() {
                   className="flex flex-col sm:flex-row gap-5 items-stretch justify-center"
                 >
                   {paged.map((p) => (
-                    <TeamCard key={p.id} person={p} onRecruit={handleRecruit} />
+                    <TeamCard key={p.id} person={p} />
                   ))}
                 </motion.div>
               </AnimatePresence>
