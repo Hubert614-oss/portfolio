@@ -34,8 +34,6 @@ function TeamCard({
 }
 
 export default function Team() {
-  const [selected, setSelected] = useState<Person | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
   const [people, setPeople] = useState<Person[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -47,7 +45,7 @@ export default function Team() {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetch("/teams.json")
+    fetch("/src/assets/teams.json")
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
@@ -66,11 +64,6 @@ export default function Team() {
       cancelled = true;
     };
   }, []);
-
-  function handleRecruit(p: Person) {
-    setSelected(p);
-    setModalOpen(true);
-  }
 
   const totalPages = Math.max(1, Math.ceil(people.length / PAGE_SIZE));
   const paged = people.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -209,32 +202,6 @@ export default function Team() {
             </>
           )}
         </div>
-
-        {modalOpen && selected && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-            <div className="bg-white rounded-2xl p-6 max-w-md w-full">
-              <h3 className="text-lg font-bold mb-2">Recruter {selected.name}</h3>
-              <p className="text-sm text-gray-600 mb-4">Role: {selected.role}</p>
-              <div className="flex gap-3">
-                <button
-                  className="btn-recruter"
-                  onClick={() => {
-                    alert(`Demande envoyée pour ${selected.name}`);
-                    setModalOpen(false);
-                  }}
-                >
-                  Envoyer
-                </button>
-                <button
-                  className="p-2 rounded-full border"
-                  onClick={() => setModalOpen(false)}
-                >
-                  Annuler
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </section>
     </div>
   );
