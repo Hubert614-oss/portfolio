@@ -13,7 +13,6 @@ type Person = {
 
 function TeamCard({
   person,
-  onRecruit,
 }: {
   person: Person;
   onRecruit: (p: Person) => void;
