@@ -9,7 +9,8 @@ import './techStackSection.css';
 const TechStackSection = () => {
     const [visibleItems, setVisibleItems] = useState<number[]>([]);
     const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
-    
+    const [activeTech, setActiveTech] = useState<string | null>(null);
+
     const techItems = [
         { name: 'React.js', icon: SiReact, slogan: 'UI Interactive', hoverColor: 'group-hover:text-[#61DAFB]', glowColor: '#61DAFB' },
         { name: 'Vue.js', icon: SiVuedotjs, slogan: 'Progressive FW', hoverColor: 'group-hover:text-[#4FC08D]', glowColor: '#4FC08D' },
@@ -64,15 +65,15 @@ const TechStackSection = () => {
                 <div className="absolute bottom-20 left-[15%] w-2 h-2 bg-[#2496ED] rounded-full opacity-30 animate-float-delayed" />
                 <div className="absolute bottom-40 right-[10%] w-1.5 h-1.5 bg-[#E0234E] rounded-full opacity-40 animate-float" />
                 <div className="absolute top-1/2 left-[5%] w-1 h-1 bg-[#4169E1] rounded-full opacity-50 animate-float-delayed" />
-                
+
                 {/* Gradient orbs */}
-                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#7c3aed]/10 rounded-full blur-[120px]" />
-                <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#06b6d4]/10 rounded-full blur-[100px]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#8b5cf6]/5 rounded-full blur-[150px]" />
+                <div className="absolute top-1/4 left-1/4 w-125 h-125 bg-[#7c3aed]/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-1/4 right-1/4 w-100 h-100 bg-[#06b6d4]/10 rounded-full blur-[100px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-[#8b5cf6]/5 rounded-full blur-[150px]" />
             </div>
 
             {/* Grid pattern overlay */}
-            <div 
+            <div
                 className="absolute inset-0 opacity-[0.03]"
                 style={{
                     backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
@@ -88,10 +89,10 @@ const TechStackSection = () => {
                         <span className="text-sm font-medium text-gray-300 tracking-wide">Notre Stack Technologique</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                        Nos <span className="text-transparent bg-clip-text bg-linear-to-r from-[#8b5cf6] via-[#06b6d4] to-[#8b5cf6] animate-gradient">Services</span>
+                        Nos <span className="text-transparent bg-clip-text bg-linear-to-r from-[#8b5cf6] via-[#06b6d4] to-[#8b5cf6] animate-gradient">Technologies</span>
                     </h2>
                     <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mt-6 leading-relaxed">
-                        Nous vous proposons des solutions complètes pour booster votre activité. De la conception à l'exécution, nous vous accompagnons à chaque étape.
+                        Nous maîtrisons les frameworks et outils les plus performants du marché pour concevoir des solutions robustes, rapides et évolutives.
                     </p>
                 </div>
 
@@ -100,26 +101,28 @@ const TechStackSection = () => {
                     <div className="tech-marquee py-6">
                         <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 lg:w-48 bg-linear-to-r from-[#0a0a1a] via-[#0a0a1a]/90 to-transparent z-10" />
                         <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 lg:w-48 bg-linear-to-l from-[#0a0a1a] via-[#0a0a1a]/90 to-transparent z-10" />
-                        
+
                         <div className="tech-marquee-track items-center gap-5 sm:gap-7 px-6">
                             {duplicatedItems.map((tech, index) => {
                                 const Icon = tech.icon;
+                                const isActive = activeTech === tech.name;
                                 return (
                                     <div
-                                        key={`${tech.name}-${index}`}
-                                        className="group relative inline-flex items-center gap-4 rounded-2xl border border-white/8 bg-white/3 backdrop-blur-sm px-6 py-4 shadow-lg shadow-black/20 transition-all duration-500 hover:shadow-xl hover:shadow-(--glow-color)/10 hover:border-white/20 hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                                        key={`forward-${tech.name}-${index}`}
+                                        onClick={(e) => { e.stopPropagation(); setActiveTech(isActive ? null : tech.name); }}
+                                        className={`group relative inline-flex items-center gap-4 rounded-2xl border bg-white/3 backdrop-blur-sm px-6 py-4 shadow-lg transition-all duration-500 hover:shadow-xl hover:shadow-(--glow-color)/10 hover:border-white/20 hover:-translate-y-1 hover:scale-105 cursor-pointer ${isActive ? 'border-white/20 shadow-xl shadow-(--glow-color)/10 -translate-y-1 scale-105' : 'border-white/8 shadow-black/20'}`}
                                         style={{ '--glow-color': tech.glowColor } as React.CSSProperties}
                                     >
-                                        <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                        
-                                        <div className={`relative text-3xl text-gray-500 transition-all duration-500 ${tech.hoverColor} group-hover:scale-110`} style={{ filter: 'none' }}>
-                                            <Icon className="transition-all duration-500 group-hover:drop-shadow-[0_0_8px_var(--glow-color)]" />
+                                        <div className={`absolute inset-0 rounded-2xl bg-linear-to-br from-white/5 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+
+                                        <div className={`relative text-3xl transition-all duration-500 group-hover:scale-110 ${isActive ? 'scale-110' : 'text-gray-500'} ${tech.hoverColor}`} style={isActive ? { color: tech.glowColor, filter: 'none' } : { filter: 'none' }}>
+                                            <Icon className={`transition-all duration-500 ${isActive ? 'drop-shadow-[0_0_8px_var(--glow-color)]' : 'group-hover:drop-shadow-[0_0_8px_var(--glow-color)]'}`} />
                                         </div>
                                         <div className="relative flex flex-col">
-                                            <span className="text-sm font-bold text-gray-200 transition-colors duration-300 group-hover:text-white">
+                                            <span className={`text-sm font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-gray-200 group-hover:text-white'}`}>
                                                 {tech.name}
                                             </span>
-                                            <span className="text-xs font-medium text-gray-500 transition-colors duration-300 group-hover:text-gray-400">
+                                            <span className={`text-xs font-medium transition-colors duration-300 ${isActive ? 'text-gray-400' : 'text-gray-500 group-hover:text-gray-400'}`}>
                                                 {tech.slogan}
                                             </span>
                                         </div>
@@ -135,26 +138,28 @@ const TechStackSection = () => {
                     <div className="tech-marquee-reverse py-6">
                         <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 lg:w-48 bg-linear-to-r from-[#0a0a1a] via-[#0a0a1a]/90 to-transparent z-10" />
                         <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 lg:w-48 bg-linear-to-l from-[#0a0a1a] via-[#0a0a1a]/90 to-transparent z-10" />
-                        
+
                         <div className="tech-marquee-track-reverse items-center gap-5 sm:gap-7 px-6">
                             {[...duplicatedItems].reverse().map((tech, index) => {
                                 const Icon = tech.icon;
+                                const isActive = activeTech === tech.name;
                                 return (
                                     <div
                                         key={`reverse-${tech.name}-${index}`}
-                                        className="group relative inline-flex items-center gap-4 rounded-2xl border border-white/8 bg-white/3 backdrop-blur-sm px-6 py-4 shadow-lg shadow-black/20 transition-all duration-500 hover:shadow-xl hover:shadow-(--glow-color)/10 hover:border-white/20 hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                                        onClick={(e) => { e.stopPropagation(); setActiveTech(isActive ? null : tech.name); }}
+                                        className={`group relative inline-flex items-center gap-4 rounded-2xl border bg-white/3 backdrop-blur-sm px-6 py-4 shadow-lg transition-all duration-500 hover:shadow-xl hover:shadow-(--glow-color)/10 hover:border-white/20 hover:-translate-y-1 hover:scale-105 cursor-pointer ${isActive ? 'border-white/20 shadow-xl shadow-(--glow-color)/10 -translate-y-1 scale-105' : 'border-white/8 shadow-black/20'}`}
                                         style={{ '--glow-color': tech.glowColor } as React.CSSProperties}
                                     >
-                                        <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                        
-                                        <div className={`relative text-3xl text-gray-500 transition-all duration-500 ${tech.hoverColor} group-hover:scale-110`}>
-                                            <Icon className="transition-all duration-500 group-hover:drop-shadow-[0_0_8px_var(--glow-color)]" />
+                                        <div className={`absolute inset-0 rounded-2xl bg-linear-to-br from-white/5 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+
+                                        <div className={`relative text-3xl transition-all duration-500 group-hover:scale-110 ${isActive ? 'scale-110' : 'text-gray-500'} ${tech.hoverColor}`}>
+                                            <Icon className={`transition-all duration-500 ${isActive ? 'drop-shadow-[0_0_8px_var(--glow-color)]' : 'group-hover:drop-shadow-[0_0_8px_var(--glow-color)]'}`} />
                                         </div>
                                         <div className="relative flex flex-col">
-                                            <span className="text-sm font-bold text-gray-200 transition-colors duration-300 group-hover:text-white">
+                                            <span className={`text-sm font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-gray-200 group-hover:text-white'}`}>
                                                 {tech.name}
                                             </span>
-                                            <span className="text-xs font-medium text-gray-500 transition-colors duration-300 group-hover:text-gray-400">
+                                            <span className={`text-xs font-medium transition-colors duration-300 ${isActive ? 'text-gray-400' : 'text-gray-500 group-hover:text-gray-400'}`}>
                                                 {tech.slogan}
                                             </span>
                                         </div>
@@ -165,10 +170,41 @@ const TechStackSection = () => {
                     </div>
                 </div>
 
+                {/* Affichage des stacks sans animation (Grille Globale) */}
+                <div className="mt-16 sm:mt-24 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 lg:gap-6 relative z-20">
+                    {techItems.map((tech, index) => {
+                        const Icon = tech.icon;
+                        const isActive = activeTech === tech.name;
+                        return (
+                            <div
+                                key={`static-${tech.name}-${index}`}
+                                onClick={(e) => { e.stopPropagation(); setActiveTech(isActive ? null : tech.name); }}
+                                className={`group relative flex flex-col items-center justify-center gap-4 rounded-2xl border bg-white/3 backdrop-blur-sm p-6 shadow-lg transition-all duration-500 hover:shadow-xl hover:shadow-(--glow-color)/10 hover:border-white/20 hover:-translate-y-1 hover:scale-105 cursor-pointer ${isActive ? 'border-white/20 shadow-xl shadow-(--glow-color)/10 -translate-y-1 scale-105' : 'border-white/8 shadow-black/20'}`}
+                                style={{ '--glow-color': tech.glowColor } as React.CSSProperties}
+                            >
+                                {/* Effet de brillance au fond */}
+                                <div className={`absolute inset-0 rounded-2xl bg-linear-to-br from-white/5 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+                                
+                                {/* Icône Technologie */}
+                                <div className={`relative text-4xl transition-all duration-500 group-hover:scale-110 ${isActive ? 'scale-110' : 'text-gray-500'} ${tech.hoverColor}`} style={isActive ? { color: tech.glowColor } : {}}>
+                                    <Icon className={`transition-all duration-500 ${isActive ? 'drop-shadow-[0_0_8px_var(--glow-color)]' : 'group-hover:drop-shadow-[0_0_8px_var(--glow-color)]'}`} />
+                                </div>
+                                
+                                {/* Noms */}
+                                <div className="relative flex flex-col items-center">
+                                    <span className={`text-sm font-bold transition-colors duration-300 text-center ${isActive ? 'text-white' : 'text-gray-200 group-hover:text-white'}`}>
+                                        {tech.name}
+                                    </span>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
                 {/* CTA */}
                 <div className="text-center mt-20">
                     <p className="text-gray-400 mb-8 text-lg">
-                        Vous avez un projet? Parlons-en! Nous saurons quel service est le plus adapté.
+                        Un projet en tête ? Parlons-en ! Nous choisirons ensemble la stack technique la plus adaptée à vos besoins.
                     </p>
                     <a
                         href="#contact"

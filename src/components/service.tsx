@@ -238,11 +238,11 @@ export default function Service() {
           {/* Body: image left + content right */}
           <div className="flex flex-col md:flex-row gap-10 items-start">
             {/* Left: image + dot arc */}
-            <div className="relative flex-shrink-0 w-full md:w-[420px]">
+            <div className="relative shrink-0 w-full md:w-150">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
                 alt="Deux développeurs collaborant devant un écran"
-                className="rounded-xl w-full object-cover h-[380px]"
+                className="rounded-xl w-full object-cover h-95"
               />
               {/* Dot arc SVG bottom-left of image */}
               <div className="absolute -bottom-10 -left-4">

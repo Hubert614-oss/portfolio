@@ -58,7 +58,7 @@
   flex-wrap: nowrap;
   width: max-content;
   white-space: nowrap;
-  animation: techMarquee 40s linear infinite;
+  animation: techMarquee 80s linear infinite;
   will-change: transform;
 }
 
@@ -67,7 +67,7 @@
   flex-wrap: nowrap;
   width: max-content;
   white-space: nowrap;
-  animation: techMarqueeReverse 45s linear infinite;
+  animation: techMarqueeReverse 85s linear infinite;
   will-change: transform;
 }
 
@@ -111,6 +111,6 @@
 @media (max-width: 640px) {
   .tech-marquee-track,
   .tech-marquee-track-reverse {
-    animation-duration: 25s;
+    animation-duration: 50s;
   }
 }

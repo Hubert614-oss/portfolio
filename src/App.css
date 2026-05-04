@@ -51,29 +51,7 @@
   flex: 1;
   min-width: 0;
 }
-.btn-recruter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: 2px solid #7c3aed;
-  border-radius: 999px;
-  color: #2d1470;
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 10px 28px;
-  background: white;
-  cursor: pointer;
-  width: 100%;
-  margin-top: auto;
-  transition:
-    background 0.15s,
-    color 0.15s;
-}
-.btn-recruter:hover {
-  background: #f5f3ff;
-}
+
 
 @keyframes arcDotsOrbit {
   0% {

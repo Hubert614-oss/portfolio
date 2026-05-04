@@ -132,14 +132,14 @@ const ProjectsSection = () => {
             className="relative w-full py-24 lg:py-36 overflow-hidden bg-bg"
         >
             {/* Transition douce en haut et en bas */}
-            <div className="absolute top-0 left-0 w-full h-[150px] bg-linear-to-b from-white to-transparent z-0 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-full h-[150px] bg-linear-to-t from-white to-transparent z-0 pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-37.5 bg-linear-to-b from-white to-transparent z-0 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-full h-37.5 bg-linear-to-t from-white to-transparent z-0 pointer-events-none" />
 
             {/* Animated background */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-iris/10 rounded-full blur-[150px]" />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan/10 rounded-full blur-[120px]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lavender/30 rounded-full blur-[200px]" />
+                <div className="absolute top-0 left-1/4 w-150 h-150 bg-iris/10 rounded-full blur-[150px]" />
+                <div className="absolute bottom-0 right-1/4 w-125 h-125 bg-cyan/10 rounded-full blur-[120px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-lavender/30 rounded-full blur-[200px]" />
             </div>
 
             {/* Grid pattern */}
@@ -202,7 +202,7 @@ const ProjectsSection = () => {
                         {projectsDev.map((project, index) => (
                         <div
                             key={index}
-                            className={`group relative shrink-0 w-[85vw] sm:w-[400px] lg:w-[450px] snap-start rounded-3xl overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
+                            className={`group relative shrink-0 w-[85vw] sm:w-100 lg:w-112.5 snap-start rounded-3xl overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
                             style={{
                                 transitionDelay: `${index * 150}ms`,
                             }}
@@ -217,7 +217,7 @@ const ProjectsSection = () => {
                                 }}
                             />
 
-                            <div className="relative bg-white border border-black/5 rounded-3xl overflow-hidden hover:border-black/10 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--card-color)]/20"
+                            <div className="relative bg-white border border-black/5 rounded-3xl overflow-hidden hover:border-black/10 transition-all duration-500 hover:shadow-2xl hover:shadow-(--card-color)/20"
                                 style={{ '--card-color': project.color } as React.CSSProperties}
                             >
                                 {/* Image */}
@@ -252,7 +252,7 @@ const ProjectsSection = () => {
 
                                 {/* Content */}
                                 <div className="p-6 md:p-8">
-                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-[var(--card-color)] transition-colors duration-300"
+                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-(--card-color) transition-colors duration-300"
                                         style={{ '--card-color': project.color } as React.CSSProperties}
                                     >
                                         {project.title}
@@ -267,14 +267,14 @@ const ProjectsSection = () => {
                                             {project.techs.map((tech, i) => (
                                                 <span
                                                     key={i}
-                                                    className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-black/5 text-gray-600 bg-gray-50 transition-all duration-300 group-hover:border-[var(--card-color)]/30 group-hover:text-[var(--card-color)]"
+                                                    className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-black/5 text-gray-600 bg-gray-50 transition-all duration-300 group-hover:border-(--card-color)/30 group-hover:text-(--card-color)"
                                                     style={{ '--card-color': project.color } as React.CSSProperties}
                                                 >
                                                     {tech}
                                                 </span>
                                             ))}
                                         </div>
-                                        <button className="shrink-0 w-12 h-12 rounded-full bg-gray-50 border border-black/5 flex items-center justify-center text-gray-500 transition-all duration-300 group-hover:bg-[var(--card-color)] group-hover:text-white group-hover:border-transparent group-hover:-rotate-45 group-hover:shadow-lg group-hover:shadow-[var(--card-color)]/30"
+                                        <button className="shrink-0 w-12 h-12 rounded-full bg-gray-50 border border-black/5 flex items-center justify-center text-gray-500 transition-all duration-300 group-hover:bg-(--card-color) group-hover:text-white group-hover:border-transparent group-hover:-rotate-45 group-hover:shadow-lg group-hover:shadow-(--card-color)/30"
                                             style={{ '--card-color': project.color } as React.CSSProperties}
                                         >
                                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -324,7 +324,7 @@ const ProjectsSection = () => {
                     {projectsMarketing.map((project, index) => (
                         <div
                             key={index}
-                            className={`group relative shrink-0 w-[85vw] sm:w-[400px] lg:w-[450px] snap-start rounded-3xl overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
+                            className={`group relative shrink-0 w-[85vw] sm:w-100 lg:w-112.5 snap-start rounded-3xl overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
                             style={{
                                 transitionDelay: `${index * 150}ms`,
                             }}
@@ -339,7 +339,7 @@ const ProjectsSection = () => {
                                 }}
                             />
 
-                            <div className="relative bg-white border border-black/5 rounded-3xl overflow-hidden hover:border-black/10 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--card-color)]/20"
+                            <div className="relative bg-white border border-black/5 rounded-3xl overflow-hidden hover:border-black/10 transition-all duration-500 hover:shadow-2xl hover:shadow-(--card-color)/20"
                                 style={{ '--card-color': project.color } as React.CSSProperties}
                             >
                                 {/* Image */}
@@ -374,7 +374,7 @@ const ProjectsSection = () => {
 
                                 {/* Content */}
                                 <div className="p-6 md:p-8">
-                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-[var(--card-color)] transition-colors duration-300"
+                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-(--card-color) transition-colors duration-300"
                                         style={{ '--card-color': project.color } as React.CSSProperties}
                                     >
                                         {project.title}
@@ -389,14 +389,14 @@ const ProjectsSection = () => {
                                             {project.techs.map((tech, i) => (
                                                 <span
                                                     key={i}
-                                                    className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-black/5 text-gray-600 bg-gray-50 transition-all duration-300 group-hover:border-[var(--card-color)]/30 group-hover:text-[var(--card-color)]"
+                                                    className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-black/5 text-gray-600 bg-gray-50 transition-all duration-300 group-hover:border-(--card-color)/30 group-hover:text-(--card-color)"
                                                     style={{ '--card-color': project.color } as React.CSSProperties}
                                                 >
                                                     {tech}
                                                 </span>
                                             ))}
                                         </div>
-                                        <button className="shrink-0 w-12 h-12 rounded-full bg-gray-50 border border-black/5 flex items-center justify-center text-gray-500 transition-all duration-300 group-hover:bg-[var(--card-color)] group-hover:text-white group-hover:border-transparent group-hover:-rotate-45 group-hover:shadow-lg group-hover:shadow-[var(--card-color)]/30"
+                                        <button className="shrink-0 w-12 h-12 rounded-full bg-gray-50 border border-black/5 flex items-center justify-center text-gray-500 transition-all duration-300 group-hover:bg-(--card-color) group-hover:text-white group-hover:border-transparent group-hover:-rotate-45 group-hover:shadow-lg group-hover:shadow-(--card-color)/30"
                                             style={{ '--card-color': project.color } as React.CSSProperties}
                                         >
                                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -446,7 +446,7 @@ const ProjectsSection = () => {
                     {projectsVideo.map((project, index) => (
                         <div
                             key={index}
-                            className={`group relative shrink-0 w-[85vw] sm:w-[400px] lg:w-[450px] snap-start rounded-3xl overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
+                            className={`group relative shrink-0 w-[85vw] sm:w-100 lg:w-112.5 snap-start rounded-3xl overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
                             style={{
                                 transitionDelay: `${index * 150}ms`,
                             }}
@@ -461,7 +461,7 @@ const ProjectsSection = () => {
                                 }}
                             />
 
-                            <div className="relative bg-white border border-black/5 rounded-3xl overflow-hidden hover:border-black/10 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--card-color)]/20"
+                            <div className="relative bg-white border border-black/5 rounded-3xl overflow-hidden hover:border-black/10 transition-all duration-500 hover:shadow-2xl hover:shadow-(--card-color)/20"
                                 style={{ '--card-color': project.color } as React.CSSProperties}
                             >
                                 {/* Image */}
@@ -496,7 +496,7 @@ const ProjectsSection = () => {
 
                                 {/* Content */}
                                 <div className="p-6 md:p-8">
-                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-[var(--card-color)] transition-colors duration-300"
+                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-(--card-color) transition-colors duration-300"
                                         style={{ '--card-color': project.color } as React.CSSProperties}
                                     >
                                         {project.title}
@@ -511,14 +511,14 @@ const ProjectsSection = () => {
                                             {project.techs.map((tech, i) => (
                                                 <span
                                                     key={i}
-                                                    className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-black/5 text-gray-600 bg-gray-50 transition-all duration-300 group-hover:border-[var(--card-color)]/30 group-hover:text-[var(--card-color)]"
+                                                    className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-black/5 text-gray-600 bg-gray-50 transition-all duration-300 group-hover:border-(--card-color)/30 group-hover:text-(--card-color)"
                                                     style={{ '--card-color': project.color } as React.CSSProperties}
                                                 >
                                                     {tech}
                                                 </span>
                                             ))}
                                         </div>
-                                        <button className="shrink-0 w-12 h-12 rounded-full bg-gray-50 border border-black/5 flex items-center justify-center text-gray-500 transition-all duration-300 group-hover:bg-[var(--card-color)] group-hover:text-white group-hover:border-transparent group-hover:-rotate-45 group-hover:shadow-lg group-hover:shadow-[var(--card-color)]/30"
+                                        <button className="shrink-0 w-12 h-12 rounded-full bg-gray-50 border border-black/5 flex items-center justify-center text-gray-500 transition-all duration-300 group-hover:bg-(--card-color) group-hover:text-white group-hover:border-transparent group-hover:-rotate-45 group-hover:shadow-lg group-hover:shadow-(--card-color)/30"
                                             style={{ '--card-color': project.color } as React.CSSProperties}
                                         >
                                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
