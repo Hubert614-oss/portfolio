@@ -2,6 +2,7 @@ import { useState } from "react"
 import Header from "../components/header"
 import MenuDrawerMobile from "../components/menuDrawerMobil"
 import TrustSection from "../components/trustSection"
+import ProjectsSection from "../components/projectsSection"
 import TechStackSection from "../components/techStackSection"
 import Service from "../components/service"
 import Team from "../components/team"
@@ -19,6 +20,7 @@ const PrincipalPage = () => {
     { label: 'VICTUS', href: '#about' },
     { label: 'Services', href: '#services' },
     { label: 'Confiance', href: '#confiance' },
+    { label: 'Projets', href: '#projets' },
     { label: 'Technos', href: '#technos' },
     { label: 'Team', href: '#team' },
     { label: 'Contact', href: '#contact' },
@@ -44,6 +46,8 @@ const PrincipalPage = () => {
       />
       <Service />
       <TrustSection />
+      {/* section pour projet realisé */}
+      <ProjectsSection />
       <TechStackSection />
       <Team />
       <Footer />

@@ -37,8 +37,9 @@ const BoxAnimated = ({ onClick }: BoxAnimatedProps) => {
             <div ref={dragBoundsRef} className="pointer-events-none fixed inset-0 z-50">
                 <motion.div
                     drag
+                    dragSnapToOrigin={true}
                     dragConstraints={dragBoundsRef}
-                    dragElastic={0.15}
+                    dragElastic={0.25}
                     dragMomentum={false}
                     animate={{
                         opacity: isScrolling ? 0.5 : 1,

@@ -50,7 +50,7 @@ const TrustSection = () => {
   const getCardStyle = (index: number) => {
     const diff = index - activeIndex;
     const normalizedDiff = ((diff + projects.length + 1) % projects.length) - 1;
-    
+
     if (normalizedDiff === 0) {
       // Carte active (centre)
       return {
@@ -83,19 +83,19 @@ const TrustSection = () => {
       {/* Fond parabolique avec dégradé violet */}
       <div className="absolute inset-0 bg-linear-to-b from-white via-purple-200 to-purple-300">
         {/* Courbe parabolique supérieure */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-white" 
-             style={{
-               borderRadius: '0 0 50% 50% / 0 0 100% 100%',
-               transform: 'scaleX(1.5)',
-             }} />
-        
+        <div className="absolute top-0 left-0 right-0 h-32 bg-white"
+          style={{
+            borderRadius: '0 0 50% 50% / 0 0 100% 100%',
+            transform: 'scaleX(1.5)',
+          }} />
+
         {/* Courbe parabolique inférieure */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-white"
-             style={{
-               borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
-               transform: 'scaleX(1.5)',
-             }} />
-        
+          style={{
+            borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
+            transform: 'scaleX(1.5)',
+          }} />
+
         {/* Effet de brillance/vague */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full blur-3xl opacity-40" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-300 rounded-full blur-3xl opacity-30" />
@@ -112,14 +112,14 @@ const TrustSection = () => {
         </div>
 
         {/* Carrousel 3D */}
-        <div 
+        <div
           className="relative hidden md:flex h-125 md:h-137.5 items-center justify-center perspective-1000"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
           {projects.map((project, index) => {
             const style = getCardStyle(index);
-            
+
             return (
               <div
                 key={project.id}
@@ -239,11 +239,10 @@ const TrustSection = () => {
                   key={`dot-${index}`}
                   type="button"
                   onClick={() => setActiveIndex(index)}
-                  className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
-                    index === activeIndex
+                  className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${index === activeIndex
                       ? 'bg-purple-700 w-6'
                       : 'bg-purple-300'
-                  }`}
+                    }`}
                   aria-label={`Aller au projet ${index + 1}`}
                 />
               ))}
@@ -277,7 +276,7 @@ const TrustSection = () => {
         </div> */}
 
         {/* Boutons de navigation */}
-        
+
       </div>
 
       <style>{`

@@ -110,7 +110,7 @@ export default function Service() {
       <section id="services" className="relative py-20 px-6 max-w-6xl mx-auto">
         <div className="absolute top-6 right-6" aria-hidden>
           <img
-            src="/logo_arc_dots.svg"
+            src="/src/assets/logo_arc_dots.svg"
             className="w-24 h-auto animate-spin-slow"
           />
           <style>{`
@@ -125,9 +125,8 @@ export default function Service() {
 
         <div
           ref={headingRef}
-          className={`text-center mb-4 transition-all duration-700 ease-out ${
-            isHeadingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className={`text-center mb-4 transition-all duration-700 ease-out ${isHeadingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D1470] leading-tight">
             Nous développons plus
@@ -226,7 +225,7 @@ export default function Service() {
       <section className="relative py-16 px-6">
         {/* Top-left purple blob */}
         <div className="absolute top-0 left-4">
-            <div className="w-7 h-7 rounded-full bg-[#611d95] animate-bounce"></div>
+          <div className="w-7 h-7 rounded-full bg-[#611d95] animate-bounce"></div>
         </div>
         {/* Main content */}
         <div className="max-w-6xl mx-auto">
